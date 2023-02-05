@@ -1,31 +1,40 @@
 import CustomActionsSection from "@/bridges/CustomActionsSection";
-import { HBox } from "@/component/HBox";
 import { VBox } from "@/component/VBox";
 import { SizeType } from "@/modules/types/actionType";
 import { colors } from "@/styles/colors";
 import { Alert, Box, Paper, Snackbar, styled, Typography } from "@mui/material";
 import { Inter } from "@next/font/google";
 import { useState } from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 const inter = Inter({ subsets: ["latin"] });
-
-const sizes = {
-  first: {
-    width: "1080px",
-    height: "1080px",
-  },
-  second: {
-    width: "960px",
-    height: "540px",
-  },
-  third: {
-    width: "800px",
-    height: "375px",
-  },
-};
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [size, setSize] = useState<SizeType>("first");
+  const isOver760px = useMediaQuery("(min-width:760px)");
+
+  const sizes = {
+    // 1080 1080 - 1:1
+    first: {
+      width: isOver760px ? "500px" : "300px",
+      height: isOver760px ? "500px" : "300px",
+    },
+    // 960 540 - 16:9
+    second: {
+      width: isOver760px ? "500px" : "300px",
+      height: isOver760px ? "281.25px" : "168.75px",
+    },
+    // 960 450 - 32:15
+    third: {
+      width: isOver760px ? "500px" : "300px",
+      height: isOver760px ? "234.375px" : "140.625px",
+    },
+    // 800 375 - 32:15
+    fourth: {
+      width: isOver760px ? "480px" : "280px",
+      height: isOver760px ? "225px" : "131.25px",
+    },
+  };
 
   const handleCloseSnackbar = () => {
     setIsOpen(false);
@@ -42,7 +51,15 @@ export default function Home() {
           COVER MAKER
         </Typography>
       </Box>
-      <Box sx={{ minHeight: "300px", padding: "20px" }}>
+      <VBox
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+          minWidth: isOver760px ? "550px" : "320px",
+          minHeight: isOver760px ? "550px" : "320px",
+          backgroundColor: colors.primary.lightest,
+        }}
+      >
         <Paper
           elevation={2}
           sx={{
@@ -50,10 +67,9 @@ export default function Home() {
             height: sizes[size].height,
           }}
         />
-      </Box>
+      </VBox>
       <VBox
         sx={{
-          padding: "16px",
           gap: "15px",
           // alignItems: "center",
           width: "100%",

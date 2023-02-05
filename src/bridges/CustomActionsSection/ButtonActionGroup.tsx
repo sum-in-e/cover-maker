@@ -19,7 +19,7 @@ const ActionGroup = ({ title, actions }: ActionGroupProps) => {
       <HBox
         sx={{
           gap: "8px",
-          overflowY: "auto",
+          overflowY: "scroll",
           "::-webkit-scrollbar": {
             display: "none",
           },
@@ -55,13 +55,19 @@ const Button = ({ value, onClick, isSelected }: ButtonProps) => {
       value={value}
       onClick={handleClick}
       sx={{
-        backgroundColor: isSelected ? colors.primary.lightest : colors.white,
+        backgroundColor: isSelected ? colors.primary.main : colors.white,
+        border: `1px solid ${
+          isSelected ? colors.primary.main : colors.primary.lightest
+        }`,
+        color: isSelected ? colors.white : colors.black,
         whiteSpace: "nowrap",
-        ":hover": {
-          backgroundColor: colors.primary.main,
-          border: `1px solid ${colors.primary.main}`,
-          color: colors.white,
-          cursor: "pointer",
+        "@media (hover: hover) and (pointer: fine) ": {
+          "&:hover": {
+            backgroundColor: colors.primary.lightest,
+            border: `1px solid ${colors.primary.lightest}`,
+            color: colors.black,
+            cursor: "pointer",
+          },
         },
       }}
     >

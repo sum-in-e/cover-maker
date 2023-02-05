@@ -84,9 +84,14 @@ const CustomActionsSection = ({ size, onClickSize }: Props) => {
       isSelected: size === "second",
     },
     {
-      value: "800 x 375",
+      value: "960 x 450",
       onClick: () => handleClickSize("third"),
       isSelected: size === "third",
+    },
+    {
+      value: "800 x 375",
+      onClick: () => handleClickSize("fourth"),
+      isSelected: size === "fourth",
     },
   ];
 
