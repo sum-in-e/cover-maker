@@ -7,47 +7,20 @@ import { useState } from "react";
 
 interface Props {
   size: SizeType;
+  themeButtons: ButtonProps[];
   onClickSize: (selectedSize: SizeType) => void;
 }
 
-const CustomActionsSection = ({ size, onClickSize }: Props) => {
-  const [theme, setTheme] = useState<ThemeType>("1번 테마");
+const CustomActionsSection = ({ size, themeButtons, onClickSize }: Props) => {
   const [font, setFont] = useState<FontType>("Noto Sans Korean");
 
   const handleClickSize = (selectedSize: SizeType) => {
     onClickSize(selectedSize);
   };
 
-  const handleClickTheme = (selectedTheme: ThemeType) => {
-    setTheme(selectedTheme);
-  };
-
   const handleClickFont = (selectedFont: FontType) => {
     setFont(selectedFont);
   };
-
-  const themeButtons: ButtonProps[] = [
-    {
-      value: "1번 테마",
-      onClick: () => handleClickTheme("1번 테마"),
-      isSelected: theme === "1번 테마",
-    },
-    {
-      value: "2번 테마",
-      onClick: () => handleClickTheme("2번 테마"),
-      isSelected: theme === "2번 테마",
-    },
-    {
-      value: "3번 테마",
-      onClick: () => handleClickTheme("3번 테마"),
-      isSelected: theme === "3번 테마",
-    },
-    {
-      value: "4번 테마",
-      onClick: () => handleClickTheme("4번 테마"),
-      isSelected: theme === "4번 테마",
-    },
-  ];
 
   const fontButtons: ButtonProps[] = [
     {
