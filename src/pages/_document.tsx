@@ -14,8 +14,10 @@ class MyDocument extends Document {
           <meta property="og:image" content="%PUBLIC_URL%/og_image.png" />
           <meta property="og:image:alt" content="내가 만드는 COVER MAKER" />
           <meta property="og:description" content="내가 만드는 COVER MAKER" />
-          <meta property="og:url" content="https://dahhnym.github.io/checo/" />
-          {/* TODO: 배포 후 url 수정 */}
+          <meta
+            property="og:url"
+            content="https://cover-maker-olive.vercel.app/"
+          />
         </Head>
         <body>
           <Main />
