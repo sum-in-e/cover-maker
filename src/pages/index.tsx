@@ -121,6 +121,14 @@ export default function Home() {
       } else if (theme === "3번 테마") {
         return "/images/theme/theme3-960x450.png";
       }
+    } else if (size === "fourth") {
+      if (theme === "1번 테마") {
+        return "/images/theme/theme1-800x375.png";
+      } else if (theme === "2번 테마") {
+        return "/images/theme/theme2-800x375.png";
+      } else if (theme === "3번 테마") {
+        return "/images/theme/theme3-800x375.png";
+      }
     }
   };
 
