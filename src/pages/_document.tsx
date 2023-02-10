@@ -5,10 +5,10 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <title>COVER MAKER</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <Head>
           <link rel="icon" href="/LOGO_covermaker.svg" />
           <meta name="description" content="내가 만드는 COVER MAKER" />
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
           <meta property="og:title" content="COVER MAKER" />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="/images/og_image.png" />

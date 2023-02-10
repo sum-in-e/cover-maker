@@ -3,12 +3,12 @@ import { VBox } from "@/component/VBox";
 import { colors } from "@/styles/colors";
 import { styled, Typography } from "@mui/material";
 
-interface ActionGroupProps {
+interface OptionButtonGroupProps {
   title: string;
-  actions: ButtonProps[];
+  options: OptionButtonProps[];
 }
 
-const ActionGroup = ({ title, actions }: ActionGroupProps) => {
+const OptionButtonGroup = ({ title, options }: OptionButtonGroupProps) => {
   return (
     <VBox sx={{ gap: "3px" }}>
       <HBox>
@@ -18,15 +18,16 @@ const ActionGroup = ({ title, actions }: ActionGroupProps) => {
       </HBox>
       <HBox
         sx={{
-          gap: "8px",
+          gap: "5px",
           overflowY: "scroll",
           "::-webkit-scrollbar": {
             display: "none",
           },
         }}
       >
-        {actions.map((item, index) => (
+        {options.map((item, index) => (
           <Button
+            key={`${title}_${index}`}
             value={item.value}
             onClick={item.onClick}
             isSelected={item.isSelected}
@@ -37,15 +38,15 @@ const ActionGroup = ({ title, actions }: ActionGroupProps) => {
   );
 };
 
-export default ActionGroup;
+export default OptionButtonGroup;
 
-export interface ButtonProps {
+export interface OptionButtonProps {
   value: string;
   onClick: () => void;
   isSelected: boolean;
 }
 
-const Button = ({ value, onClick, isSelected }: ButtonProps) => {
+const Button = ({ value, onClick, isSelected }: OptionButtonProps) => {
   const handleClick = () => {
     onClick();
   };
