@@ -4,9 +4,9 @@ import { OptionButtonProps } from "@/bridges/CustomOptions/OptionGroup/CommonOpt
 export const useSizeOptions = ({ size, onClickSize }: SizeContextType) => {
   const sizeOptions: OptionButtonProps[] = [
     {
-      value: "1080 x 1080",
-      onClick: () => onClickSize("1080 x 1080"),
-      isSelected: size === "1080 x 1080",
+      value: "600 x 600",
+      onClick: () => onClickSize("600 x 600"),
+      isSelected: size === "600 x 600",
     },
     {
       value: "960 x 540",

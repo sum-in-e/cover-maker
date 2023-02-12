@@ -18,7 +18,18 @@ class MyDocument extends Document {
             property="og:url"
             content="https://cover-maker-olive.vercel.app/"
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin={"use-credentials"}
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@400;500&family=Song+Myung&display=swap"
+            rel="stylesheet"
+          />
         </Head>
+
         <body>
           <Main />
           <NextScript />

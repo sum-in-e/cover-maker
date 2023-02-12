@@ -1,11 +1,12 @@
-import { SizeType, ThemeType } from "@/modules/types/optionType";
-import { getPreviewCoverSize } from "@/modules/utils/getCoverSize";
+import { FontType, SizeType, ThemeType } from "@/modules/types/optionType";
+import { getCoverFont } from "@/modules/utils/getCoverFont";
+import { getCoverSize } from "@/modules/utils/getCoverSize";
 import { getCoverTheme } from "@/modules/utils/getCoverTheme";
 
 interface Props {
   size: SizeType;
   theme: ThemeType;
-  // font
+  font: FontType;
   // title
   // subtitle
 }
@@ -16,17 +17,15 @@ interface Props {
  * 근데 둘이 달라지는 건,, 사이즈 뿐이다. 테마도 src도 같고, 폰트도 같고, 텍스트도 같아 그럼,, 훅을 분리할 게 아니라
  * 사이즈 구하는 것만 유틸을 빼도 될 거 같다?
  */
-export const useCover = ({ size, theme }: Props) => {
-  //* 최종 사이즈 내려주기
-  const coverSize = getPreviewCoverSize(size);
-
-  //* 테마 타입에 따른 최종 테마 src 내려주기
+export const useCover = ({ size, theme, font }: Props) => {
+  const coverSize = getCoverSize({ size });
   const coverTheme = getCoverTheme({ size, theme });
+  const coverFont = getCoverFont({ size, theme, font });
 
   return {
     coverSize,
     coverTheme,
-    // coverFont:,
+    coverFont,
     // coverTitle:,
     // coverSubtitle:,
   };

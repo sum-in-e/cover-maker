@@ -1,14 +1,37 @@
 import { colors } from "@/styles/colors";
-import { styled, Typography } from "@mui/material";
-import { forwardRef } from "react";
+import { Alert, Snackbar, styled, Typography } from "@mui/material";
+import { forwardRef, useRef, useState } from "react";
 import { Section } from "@/component/Section";
 import CoverSection from "@/bridges/CoverMaker/CoverSection";
 import { HBox } from "@/component/HBox";
 import CustomOptions from "@/bridges/CustomOptions";
+import { toPng } from "html-to-image";
 
 const CoverMaker = forwardRef((ref) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const coverRef = useRef<HTMLDivElement>(null);
+
+  const getImage = () => {
+    const coverElement = coverRef.current;
+
+    if (coverElement) {
+      toPng(coverElement).then((image) => {
+        const link = window.document.createElement("a");
+        link.download = "my-cover" + ".png";
+        link.href = image;
+        link.click();
+        setIsOpen(true);
+      });
+    }
+  };
+
   const handleClickSaveToImage = () => {
-    // getImage();
+    getImage();
+  };
+
+  const handleCloseSnackbar = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -19,8 +42,8 @@ const CoverMaker = forwardRef((ref) => {
             COVER MAKER
           </Typography>
         </Header>
-        <HBox sx={{ justifyContent: "space-between", gap: "40px" }}>
-          <CoverSection />
+        <HBox sx={{ justifyContent: "space-between", gap: "20px" }}>
+          <CoverSection ref={coverRef} />
           <Section
             sx={{
               display: "flex",
@@ -42,6 +65,19 @@ const CoverMaker = forwardRef((ref) => {
           </Section>
         </HBox>
       </Box>
+      <Snackbar
+        open={isOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          커버가 저장되었습니다!
+        </Alert>
+      </Snackbar>
     </Container>
   );
 });
@@ -60,8 +96,6 @@ const Box = styled("div")({
   flexDirection: "column",
   gap: "20px",
   padding: "20px 40px",
-  maxWidth: "1024px",
-  backgroundColor: colors.primary.lightest,
 });
 
 const CustomButton = styled("button")(({ theme }) => ({

@@ -7,12 +7,12 @@ export interface SizeContextType {
 }
 
 export const SizeContext = createContext<SizeContextType>({
-  size: "1080 x 1080",
+  size: "600 x 600",
   onClickSize: () => {},
 });
 
 const SizeProvider = ({ children }: { children: ReactNode }) => {
-  const [size, setSize] = useState<SizeType>("1080 x 1080");
+  const [size, setSize] = useState<SizeType>("600 x 600");
 
   const handleClickSize = (selectedSize: SizeType) => {
     setSize(selectedSize);

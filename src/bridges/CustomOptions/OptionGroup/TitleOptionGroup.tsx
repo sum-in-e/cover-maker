@@ -4,15 +4,29 @@ import { TextField, Typography } from "@mui/material";
 import { ChangeEvent, useContext } from "react";
 
 const TitleOptionGroup = () => {
-  const { mainTitle, subTitle, onChangeMainTitle, onChangeSubTitle } =
-    useContext(TitleContext);
+  const {
+    mainTitle,
+    subTitle,
+    onChangeMainTitle,
+    onChangeSubTitle,
+    isShowMainTitleGuide,
+    isShowSubTitleGuide,
+    onChangeShowMainTitleGuide,
+    onChangeShowSubTitleGuide,
+  } = useContext(TitleContext);
 
   const handleChangeMainTitle = (event: ChangeEvent<HTMLInputElement>) => {
     onChangeMainTitle(event.target.value);
+    if (isShowMainTitleGuide) {
+      onChangeShowMainTitleGuide(false);
+    }
   };
 
   const handleChangeSubTitle = (event: ChangeEvent<HTMLInputElement>) => {
     onChangeSubTitle(event.target.value);
+    if (isShowSubTitleGuide) {
+      onChangeShowSubTitleGuide(false);
+    }
   };
 
   return (
