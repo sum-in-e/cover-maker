@@ -1,9 +1,6 @@
 import { SizeType, ThemeType } from "@/modules/types/optionType";
-import {
-  getDesktopCoverSize,
-  getMobileCoverSize,
-} from "@/modules/utils/getCoverSize";
-import { useMediaQuery } from "@mui/material";
+import { getPreviewCoverSize } from "@/modules/utils/getCoverSize";
+import { getCoverTheme } from "@/modules/utils/getCoverTheme";
 
 interface Props {
   size: SizeType;
@@ -20,50 +17,15 @@ interface Props {
  * 사이즈 구하는 것만 유틸을 빼도 될 거 같다?
  */
 export const useCover = ({ size, theme }: Props) => {
-  const isDesktop = useMediaQuery("(min-width:1024px)");
-
   //* 최종 사이즈 내려주기
-  const coverSize = isDesktop ? getDesktopCoverSize : getMobileCoverSize;
+  const coverSize = getPreviewCoverSize(size);
 
   //* 테마 타입에 따른 최종 테마 src 내려주기
-  const getTheme = () => {
-    if (size === "1080 x 1080") {
-      if (theme === "1번 테마") {
-        return "/images/theme/theme1-1080x1080.png";
-      } else if (theme === "2번 테마") {
-        return "/images/theme/theme2-1080x1080.png";
-      } else if (theme === "3번 테마") {
-        return "/images/theme/theme3-1080x1080.png";
-      }
-    } else if (size === "960 x 540") {
-      if (theme === "1번 테마") {
-        return "/images/theme/theme1-960x540.png";
-      } else if (theme === "2번 테마") {
-        return "/images/theme/theme2-960x540.png";
-      } else if (theme === "3번 테마") {
-        return "/images/theme/theme3-960x540.png";
-      }
-    } else if (size === "960 x 450") {
-      if (theme === "1번 테마") {
-        return "/images/theme/theme1-960x450.png";
-      } else if (theme === "2번 테마") {
-        return "/images/theme/theme2-960x450.png";
-      } else if (theme === "3번 테마") {
-        return "/images/theme/theme3-960x450.png";
-      }
-    } else if (size === "800 x 375") {
-      if (theme === "1번 테마") {
-        return "/images/theme/theme1-800x375.png";
-      } else if (theme === "2번 테마") {
-        return "/images/theme/theme2-800x375.png";
-      } else if (theme === "3번 테마") {
-        return "/images/theme/theme3-800x375.png";
-      }
-    }
-  };
+  const coverTheme = getCoverTheme({ size, theme });
+
   return {
     coverSize,
-    coverTheme: getTheme(),
+    coverTheme,
     // coverFont:,
     // coverTitle:,
     // coverSubtitle:,

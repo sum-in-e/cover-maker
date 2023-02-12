@@ -1,5 +1,5 @@
 import { ThemeContextType } from "@/bridges/CoverMaker/Provider/ThemeProvider";
-import { OptionButtonProps } from "@/bridges/CustomOptions/MobileCustomOptions/OptionGroup/CommonOptionButtonGroup";
+import { OptionButtonProps } from "@/bridges/CustomOptions/OptionGroup/CommonOptionButtonGroup";
 
 export const useThemeOptions = ({ theme, onClickTheme }: ThemeContextType) => {
   const themeOptions: OptionButtonProps[] = [

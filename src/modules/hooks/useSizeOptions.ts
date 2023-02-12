@@ -1,5 +1,5 @@
 import { SizeContextType } from "@/bridges/CoverMaker/Provider/SizeProvider";
-import { OptionButtonProps } from "@/bridges/CustomOptions/MobileCustomOptions/OptionGroup/CommonOptionButtonGroup";
+import { OptionButtonProps } from "@/bridges/CustomOptions/OptionGroup/CommonOptionButtonGroup";
 
 export const useSizeOptions = ({ size, onClickSize }: SizeContextType) => {
   const sizeOptions: OptionButtonProps[] = [

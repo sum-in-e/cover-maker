@@ -1,5 +1,5 @@
 import { ThemeContext } from "@/bridges/CoverMaker/Provider/ThemeProvider";
-import OptionButtonGroup from "@/bridges/CustomOptions/DesktopCustomOptions/OptionGroup/CommonOptionButtonGroup";
+import OptionButtonGroup from "@/bridges/CustomOptions/OptionGroup/CommonOptionButtonGroup";
 import { useThemeOptions } from "@/modules/hooks/useThemeOptions";
 import { useContext } from "react";
 

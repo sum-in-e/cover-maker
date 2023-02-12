@@ -16,7 +16,6 @@ const CoverSection = () => {
   const { font } = useContext(FontContext);
 
   const { coverSize, coverTheme } = useCover({ size, theme });
-  console.log("cover rerendered");
 
   return (
     <Section
@@ -34,8 +33,8 @@ const CoverSection = () => {
       <Paper
         elevation={3}
         sx={{
-          width: coverSize(size).width,
-          height: coverSize(size).height,
+          width: coverSize.width,
+          height: coverSize.height,
           backgroundImage: `url(${coverTheme})`,
           backgroundSize: "100% 100%",
           borderRadius: "0px",

@@ -1,5 +1,5 @@
 import { FontContextType } from "@/bridges/CoverMaker/Provider/FontProvider";
-import { OptionButtonProps } from "@/bridges/CustomOptions/MobileCustomOptions/OptionGroup/CommonOptionButtonGroup";
+import { OptionButtonProps } from "@/bridges/CustomOptions/OptionGroup/CommonOptionButtonGroup";
 
 export const useFontOptions = ({ font, onClickFont }: FontContextType) => {
   const fontOptions: OptionButtonProps[] = [
