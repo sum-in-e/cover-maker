@@ -6,13 +6,13 @@ interface Props {
 }
 
 export const getCoverTheme = ({ size, theme }: Props) => {
-  if (size === "1080 x 1080") {
+  if (size === "600 x 600") {
     if (theme === "1번 테마") {
-      return "/images/theme/theme1-1080x1080.png";
+      return "/images/theme/theme1-600x600.png";
     } else if (theme === "2번 테마") {
-      return "/images/theme/theme2-1080x1080.png";
+      return "/images/theme/theme2-600x600.png";
     } else if (theme === "3번 테마") {
-      return "/images/theme/theme3-1080x1080.png";
+      return "/images/theme/theme3-600x600.png";
     }
   } else if (size === "960 x 540") {
     if (theme === "1번 테마") {

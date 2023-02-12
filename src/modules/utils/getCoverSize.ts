@@ -7,34 +7,11 @@ type sizeObjType = {
   };
 };
 
-export const getPreviewCoverSize = (size: SizeType) => {
+export const getCoverSize = ({ size }: { size: SizeType }) => {
   const sizeObj: sizeObjType = {
-    "1080 x 1080": {
+    "600 x 600": {
       width: "600px",
       height: "600px",
-    },
-    "960 x 540": {
-      width: "600px",
-      height: "337.5px",
-    },
-    "960 x 450": {
-      width: "600px",
-      height: "281.25px",
-    },
-    "800 x 375": {
-      width: "520px",
-      height: "243.75px",
-    },
-  };
-
-  return sizeObj[size];
-};
-
-export const getResultCoverSize = (size: SizeType) => {
-  const sizeObj: sizeObjType = {
-    "1080 x 1080": {
-      width: "1080px",
-      height: "1080px",
     },
     "960 x 540": {
       width: "960px",
