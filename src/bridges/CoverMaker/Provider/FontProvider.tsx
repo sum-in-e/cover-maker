@@ -12,7 +12,7 @@ export const FontContext = createContext<FontContextType>({
 });
 
 const FontProvider = ({ children }: { children: ReactNode }) => {
-  const [font, setFont] = useState<FontType>("Noto Sans Korean");
+  const [font, setFont] = useState<FontType>("Noto Sans KR");
 
   const handleClickFont = (selectedFont: FontType) => {
     setFont(selectedFont);

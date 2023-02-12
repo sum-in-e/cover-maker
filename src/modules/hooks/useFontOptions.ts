@@ -5,8 +5,8 @@ export const useFontOptions = ({ font, onClickFont }: FontContextType) => {
   const fontOptions: OptionButtonProps[] = [
     {
       value: "Noto Sans KR",
-      onClick: () => onClickFont("Noto Sans Korean"),
-      isSelected: font === "Noto Sans Korean",
+      onClick: () => onClickFont("Noto Sans KR"),
+      isSelected: font === "Noto Sans KR",
     },
     {
       value: "Do Hyeon",
