@@ -48,8 +48,10 @@ const CoverMaker = forwardRef((ref) => {
     <Container>
       <Box>
         <Header>
-          <Typography sx={{ fontSize: "40px", fontWeight: 600 }}>
-            COVER MAKER
+          <Typography
+            sx={{ fontSize: "25px", fontWeight: 600, fontStyle: "italic" }}
+          >
+            @COVER MAKER
           </Typography>
         </Header>
         <HBox sx={{ justifyContent: "space-between", gap: "20px" }}>
@@ -104,18 +106,20 @@ const CoverMaker = forwardRef((ref) => {
 
 export default CoverMaker;
 
-const Header = styled("header")({});
-
 const Container = styled("div")({
   display: "flex",
   justifyContent: "center",
+  padding: "10px 0px",
 });
 
 const Box = styled("div")({
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
-  padding: "20px 40px",
+  // gap: "10px",
+});
+
+const Header = styled("header")({
+  textAlign: "end",
 });
 
 const CustomButton = styled("button")(({ theme }) => ({
