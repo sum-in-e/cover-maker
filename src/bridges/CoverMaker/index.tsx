@@ -146,7 +146,7 @@ const Header = styled("header")({
   margin: "10px 0",
 });
 
-const CustomButton = styled("button")(({ theme }) => ({
+const CustomButton = styled("button")({
   padding: "15px",
   borderRadius: "20px",
   backgroundColor: colors.primary.main,
@@ -158,4 +158,4 @@ const CustomButton = styled("button")(({ theme }) => ({
     backgroundColor: colors.primary.dark,
     cursor: "pointer",
   },
-}));
+});
