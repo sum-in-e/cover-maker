@@ -15,7 +15,8 @@ import { toPng } from "html-to-image";
 import { VBox } from "@/component/VBox";
 
 const CoverMaker = forwardRef((ref) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenImageSaved, setIsOpenImageSaved] = useState(false);
+  const [isOpenLinkCopied, setIsOpenLinkCopied] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
   const coverRef = useRef<HTMLDivElement>(null);
@@ -32,7 +33,7 @@ const CoverMaker = forwardRef((ref) => {
         link.href = image;
         link.click();
         setIsSaving(false);
-        setIsOpen(true);
+        setIsOpenImageSaved(true);
       });
     }
   };
@@ -41,8 +42,24 @@ const CoverMaker = forwardRef((ref) => {
     saveToImage();
   };
 
-  const handleCloseSnackbar = () => {
-    setIsOpen(false);
+  const handleCloseImageSaved = () => {
+    setIsOpenImageSaved(false);
+  };
+
+  const handleCopy = () => {
+    window.navigator.clipboard
+      .writeText("https://cover-maker-olive.vercel.app/")
+      .then(() => {
+        setIsOpenLinkCopied(true);
+      });
+  };
+
+  const handleClickLogo = () => {
+    handleCopy();
+  };
+
+  const handleCloseLinkCopied = () => {
+    setIsOpenLinkCopied(false);
   };
 
   return (
@@ -50,10 +67,12 @@ const CoverMaker = forwardRef((ref) => {
       <VBox>
         <Header>
           <Typography
+            onClick={handleClickLogo}
             sx={{
               fontSize: "25px",
               fontWeight: 600,
               fontStyle: "italic",
+              cursor: "pointer",
             }}
           >
             @COVER MAKER
@@ -92,17 +111,22 @@ const CoverMaker = forwardRef((ref) => {
           </Section>
         </HBox>
       </VBox>
-      <Snackbar
-        open={isOpen}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-      >
+      <Snackbar open={isOpenImageSaved} autoHideDuration={6000}>
         <Alert
-          onClose={handleCloseSnackbar}
+          onClose={handleCloseImageSaved}
           severity="success"
           sx={{ width: "100%" }}
         >
-          커버가 저장되었습니다!
+          커버가 저장되었습니다! 😃
+        </Alert>
+      </Snackbar>
+      <Snackbar open={isOpenLinkCopied} autoHideDuration={6000}>
+        <Alert
+          onClose={handleCloseLinkCopied}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          COVER MAKER 링크가 복사되었습니다! 📝
         </Alert>
       </Snackbar>
     </Container>
@@ -117,7 +141,8 @@ const Container = styled("div")({
 });
 
 const Header = styled("header")({
-  textAlign: "end",
+  display: "flex",
+  justifyContent: "flex-end",
   margin: "10px 0",
 });
 
