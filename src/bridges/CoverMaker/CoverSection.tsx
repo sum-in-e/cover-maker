@@ -29,6 +29,7 @@ const CoverSection = forwardRef((props, ref) => {
         padding: "10px",
         backgroundColor: colors.white,
         boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+        position: "relative",
       }}
     >
       <Paper
@@ -99,6 +100,7 @@ const CoverSection = forwardRef((props, ref) => {
           )}
         </VBox>
       </Paper>
+      <CopyRight>&copy; {new Date().getFullYear()} Cover Maker</CopyRight>
     </Section>
   );
 });
@@ -120,4 +122,12 @@ const SubTitle = styled("span")({
   wordBreak: "keep-all",
   textAlign: "center",
   lineHeight: "22px",
+});
+
+const CopyRight = styled("span")({
+  position: "absolute",
+  left: "10px",
+  bottom: "10px",
+  fontSize: "13px",
+  color: colors.primary.lighter,
 });

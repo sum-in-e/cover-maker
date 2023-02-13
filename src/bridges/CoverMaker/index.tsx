@@ -12,6 +12,7 @@ import CoverSection from "@/bridges/CoverMaker/CoverSection";
 import { HBox } from "@/component/HBox";
 import CustomOptions from "@/bridges/CustomOptions";
 import { toPng } from "html-to-image";
+import { VBox } from "@/component/VBox";
 
 const CoverMaker = forwardRef((ref) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ const CoverMaker = forwardRef((ref) => {
 
   return (
     <Container>
-      <Box>
+      <VBox>
         <Header>
           <Typography
             sx={{ fontSize: "25px", fontWeight: 600, fontStyle: "italic" }}
@@ -86,7 +87,7 @@ const CoverMaker = forwardRef((ref) => {
             </CustomButton>
           </Section>
         </HBox>
-      </Box>
+      </VBox>
       <Snackbar
         open={isOpen}
         autoHideDuration={6000}
@@ -109,17 +110,11 @@ export default CoverMaker;
 const Container = styled("div")({
   display: "flex",
   justifyContent: "center",
-  padding: "10px 0px",
-});
-
-const Box = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  // gap: "10px",
 });
 
 const Header = styled("header")({
   textAlign: "end",
+  margin: "10px 0",
 });
 
 const CustomButton = styled("button")(({ theme }) => ({
