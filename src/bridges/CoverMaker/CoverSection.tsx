@@ -108,6 +108,7 @@ const MainTitle = styled("span")({
   color: "white",
   wordBreak: "keep-all",
   textAlign: "center",
+  lineHeight: "60px",
 });
 
 const SubTitle = styled("span")({
@@ -115,4 +116,5 @@ const SubTitle = styled("span")({
   color: "white",
   wordBreak: "keep-all",
   textAlign: "center",
+  lineHeight: "22px",
 });
