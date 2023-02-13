@@ -50,7 +50,11 @@ const CoverMaker = forwardRef((ref) => {
       <VBox>
         <Header>
           <Typography
-            sx={{ fontSize: "25px", fontWeight: 600, fontStyle: "italic" }}
+            sx={{
+              fontSize: "25px",
+              fontWeight: 600,
+              fontStyle: "italic",
+            }}
           >
             @COVER MAKER
           </Typography>

@@ -1,9 +1,8 @@
 import { css } from "@emotion/react";
 
 export const global = css`
-  /* TODO: 프리텐다드로 변경 */
   * {
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: "Pretendard", sans-serif;
   }
   html,
   body,

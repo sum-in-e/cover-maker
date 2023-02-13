@@ -22,11 +22,17 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin={"use-credentials"}
+            crossOrigin={"anonymous"}
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@400;500&family=Song+Myung&display=swap"
             rel="stylesheet"
+          />
+          <link
+            rel="stylesheet"
+            as="style"
+            crossOrigin={"anonymous"}
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css"
           />
         </Head>
 
