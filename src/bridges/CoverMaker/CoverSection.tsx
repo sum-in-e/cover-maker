@@ -26,7 +26,7 @@ const CoverSection = forwardRef((props, ref) => {
         justifyContent: "center",
         borderRadius: "4px",
         minWidth: "1000px",
-        padding: "20px",
+        padding: "10px",
         backgroundColor: colors.white,
         boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
       }}
@@ -78,7 +78,10 @@ const CoverSection = forwardRef((props, ref) => {
           )}
           {isShowSubTitleGuide ? (
             <SubTitle
-              sx={{ color: coverFont.color, fontFamily: coverFont.fontFamily }}
+              sx={{
+                color: coverFont.color,
+                fontFamily: coverFont.fontFamily,
+              }}
             >
               제목을 입력하세요
             </SubTitle>

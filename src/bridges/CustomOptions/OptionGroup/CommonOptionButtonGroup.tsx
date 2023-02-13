@@ -55,17 +55,6 @@ const Button = ({ value, onClick, isSelected }: OptionButtonProps) => {
           isSelected ? colors.primary.main : colors.primary.lightest
         }`,
         color: isSelected ? colors.white : colors.black,
-        padding: "10px 16px",
-        fontSize: "15px",
-        width: "130px",
-        "@media (hover: hover) and (pointer: fine) ": {
-          "&:hover": {
-            backgroundColor: colors.primary.lightest,
-            border: `1px solid ${colors.primary.lightest}`,
-            color: colors.black,
-            cursor: "pointer",
-          },
-        },
       }}
     >
       {value}
@@ -74,9 +63,15 @@ const Button = ({ value, onClick, isSelected }: OptionButtonProps) => {
 };
 
 const CustomButton = styled("button")({
-  padding: "7px 15px",
+  padding: "8px 15px",
   borderRadius: "5px",
-  border: `1px solid ${colors.primary.lightest}`,
+  fontSize: "15px",
+  "&:hover": {
+    backgroundColor: colors.primary.lightest,
+    border: `1px solid ${colors.primary.lightest}`,
+    color: colors.black,
+    cursor: "pointer",
+  },
 });
 
 const Grid = styled("div")({
