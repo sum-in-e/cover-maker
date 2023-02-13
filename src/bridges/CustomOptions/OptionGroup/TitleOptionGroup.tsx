@@ -1,5 +1,6 @@
 import { TitleContext } from "@/bridges/CoverMaker/Provider/TitleProvider";
 import { VBox } from "@/component/VBox";
+import { colors } from "@/styles/colors";
 import { TextField, Typography } from "@mui/material";
 import { ChangeEvent, useContext } from "react";
 
@@ -38,11 +39,14 @@ const TitleOptionGroup = () => {
         <TextField
           variant="outlined"
           value={mainTitle}
-          placeholder="제목을 입력하세요"
+          placeholder="제목을 입력하세요."
           onChange={handleChangeMainTitle}
           size="small"
           autoComplete="off"
         />
+        <Typography variant="caption" color={colors.primary.lighter}>
+          *최초 입력 시 미리보기의 가이드 문구가 사라집니다.
+        </Typography>
       </VBox>
       <VBox sx={{ gap: "3px" }}>
         <Typography variant="body1" fontWeight={600} color="black">
@@ -56,6 +60,9 @@ const TitleOptionGroup = () => {
           size="small"
           autoComplete="off"
         />
+        <Typography variant="caption" color={colors.primary.lighter}>
+          *최초 입력 시 미리보기의 가이드 문구가 사라집니다.
+        </Typography>
       </VBox>
     </VBox>
   );
