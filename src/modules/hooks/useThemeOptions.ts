@@ -18,6 +18,11 @@ export const useThemeOptions = ({ theme, onClickTheme }: ThemeContextType) => {
       onClick: () => onClickTheme("3번 테마"),
       isSelected: theme === "3번 테마",
     },
+    {
+      value: "4번 테마",
+      onClick: () => onClickTheme("4번 테마"),
+      isSelected: theme === "4번 테마",
+    },
   ];
 
   return { themeOptions };
