@@ -106,13 +106,13 @@ const MainTitle = styled("span")({
   fontSize: "52px",
   fontWeight: 500,
   color: "white",
-  wordBreak: "break-all",
+  wordBreak: "keep-all",
   textAlign: "center",
 });
 
 const SubTitle = styled("span")({
   fontSize: "16px",
   color: "white",
-  wordBreak: "break-all",
+  wordBreak: "keep-all",
   textAlign: "center",
 });
