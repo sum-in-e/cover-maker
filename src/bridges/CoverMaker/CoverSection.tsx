@@ -17,7 +17,7 @@ const CoverSection = forwardRef((props, ref) => {
   const { font } = useContext(FontContext);
 
   const { coverSize, coverTheme, coverFont } = useCover({ size, theme, font });
-  console.log(coverFont.fontFamily);
+
   return (
     <Section
       sx={{

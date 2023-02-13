@@ -1,5 +1,11 @@
 import { colors } from "@/styles/colors";
-import { Alert, Snackbar, styled, Typography } from "@mui/material";
+import {
+  Alert,
+  CircularProgress,
+  Snackbar,
+  styled,
+  Typography,
+} from "@mui/material";
 import { forwardRef, useRef, useState } from "react";
 import { Section } from "@/component/Section";
 import CoverSection from "@/bridges/CoverMaker/CoverSection";
@@ -9,25 +15,29 @@ import { toPng } from "html-to-image";
 
 const CoverMaker = forwardRef((ref) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   const coverRef = useRef<HTMLDivElement>(null);
 
-  const getImage = () => {
+  const saveToImage = () => {
     const coverElement = coverRef.current;
 
     if (coverElement) {
+      setIsSaving(true);
+
       toPng(coverElement).then((image) => {
         const link = window.document.createElement("a");
         link.download = "my-cover" + ".png";
         link.href = image;
         link.click();
+        setIsSaving(false);
         setIsOpen(true);
       });
     }
   };
 
   const handleClickSaveToImage = () => {
-    getImage();
+    saveToImage();
   };
 
   const handleCloseSnackbar = () => {
@@ -60,7 +70,17 @@ const CoverMaker = forwardRef((ref) => {
               onClick={handleClickSaveToImage}
               sx={{ width: "100%", marginTop: "30px" }}
             >
-              이미지로 저장하기
+              {isSaving ? (
+                <CircularProgress
+                  sx={{
+                    color: colors.white,
+                    width: "15px !important",
+                    height: "15px !important",
+                  }}
+                />
+              ) : (
+                "이미지로 저장하기"
+              )}
             </CustomButton>
           </Section>
         </HBox>
